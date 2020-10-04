@@ -89,4 +89,7 @@ public class Manga {
                 ", nota=" + nota +
                 '}';
     }
+    public void infos(){
+        System.out.println(toString());
+    }
 }

@@ -3,6 +3,7 @@ package maua.br.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ListaAnimes {
     private List<Animes> animes;
 

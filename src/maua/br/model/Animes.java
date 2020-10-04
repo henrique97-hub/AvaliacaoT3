@@ -66,6 +66,10 @@ public class Animes {
                 '}';
     }
 
+    public void infos(){
+        System.out.println(toString());
+    }
+
 
     }
 
