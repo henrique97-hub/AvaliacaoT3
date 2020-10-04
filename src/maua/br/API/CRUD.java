@@ -8,7 +8,7 @@ public interface CRUD<T> {
     String verLink();
     List<T> nome(String nome);
     List<T> tipo(String tipo); // manga ou anime
-    //List<T> infos();
+    List<T> infos();
 
 //   String create(T t);
 //    String update(T t);
