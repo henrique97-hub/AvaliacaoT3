@@ -2,15 +2,22 @@ package maua.br.dao;
 
 import maua.br.model.Animes;
 import maua.br.model.ListaAnimes;
+import maua.br.model.ListaMangas;
 import maua.br.model.Manga;
 
 import java.sql.*;
 import java.util.List;
 
+/**
+ * Contem DAO para mangas
+ */
 public class MangaDAO implements DAO<Manga> {
     private Connection connection;
     private String myDB = "jdbc:sqlite:dados.db";
 
+    /**
+     * Contrutor da classe, que permite estabelecer conexão com o database
+     */
     public MangaDAO(){
         try{
             connection = DriverManager.getConnection(myDB);
@@ -19,14 +26,18 @@ public class MangaDAO implements DAO<Manga> {
         }
     }
 
+    /**
+     *Contem todas as informações que contém na tabela dos mangas
+     * @return retorna lista de mangas
+     */
     @Override
     public List<Manga> infos() {
-        ListaAnimes listaAnimes = new ListaAnimes();
+        ListaMangas listaMangas = new ListaMangas();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(verNome(toString()));
             while (resultSet.next()){
-                listaAnimes.addAnime(new Animes(
+                listaMangas.addManga(new Manga(
                         ResultSet.getString("url"),
                         ResultSet.getString("nome"),
                         ResultSet.getString("sinopse"),
@@ -40,9 +51,13 @@ public class MangaDAO implements DAO<Manga> {
         } catch (Exception e){
             e.printStackTrace();
         }
-        return ListaAnimes.getMangas();
+        return listaMangas.getMangas();
     }
 
+    /** Permite que um update seja realizado
+     * @param manga update de mangas
+     * @return se deu certo o update ou não
+     */
     @Override
     public String update(Manga manga) {
         try {
@@ -60,6 +75,10 @@ public class MangaDAO implements DAO<Manga> {
         }
     }
 
+    /** Este metodo permite que mangas sejam excluidos
+     * @param manga - mangas para serem excluidos
+     *
+     */
     @Override
     public String delete(Manga manga) {
         try {
@@ -71,6 +90,10 @@ public class MangaDAO implements DAO<Manga> {
         }
     }
 
+    /** Método que permite que novos animes sejam criados
+     * @param manga - mangas para serem criados
+     * @return
+     */
     @Override
     public String create(Manga manga) {
         try {
@@ -87,6 +110,10 @@ public class MangaDAO implements DAO<Manga> {
         }
     }
 
+    /**
+     * Permite ver o nome que pertence a tabela
+     * @return - String
+     */
     @Override
     public String verNome(String table) {
         return "SELECT * FROM"+table;

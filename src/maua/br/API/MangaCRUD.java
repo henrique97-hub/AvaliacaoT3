@@ -35,9 +35,9 @@ public class MangaCRUD implements CRUD {
         return null;
     }
 
-    /** Utiliza o nome e retorna lista de mangas
-     * @param tipo
-     * @return
+    /** Utiliza o nome e retorna lista de mangas cujo nome coincide com a pesquisa
+     * @param tipo contem uma string referente ao nome da pesquisa
+     * @return retorna a string
      */
     @Override
     public List tipo (String tipo){
