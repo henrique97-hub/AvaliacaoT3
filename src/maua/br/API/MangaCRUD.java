@@ -6,14 +6,24 @@ import maua.br.parser.AnimeParser;
 import maua.br.parser.MangaParser;
 
 import java.util.List;
+/**
+ * CRUD do manga, semelhante ao CURD do anime
+ */
 
 public class MangaCRUD implements CRUD {
 
+    /**
+     * @return string com o link da API
+     */
     @Override
     public String verLink() {
         return "https://jikam.moe/";
     }
 
+    /** ulitiza o nome e retorna a lista de mangas
+     * @param nome - contem o nome do manga que sera utilizado na pesquisa
+     * @return - retorna texto (String)
+     */
     @Override
     public List nome(String nome) {
         try{
@@ -25,6 +35,10 @@ public class MangaCRUD implements CRUD {
         return null;
     }
 
+    /** Utiliza o nome e retorna lista de mangas
+     * @param tipo
+     * @return
+     */
     @Override
     public List tipo (String tipo){
             try {

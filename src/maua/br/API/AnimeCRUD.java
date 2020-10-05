@@ -10,6 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * CRUD do anime: metodos de Criar, ler, fazer upgrade e Deletar arquivos do banco de
+ * dados
+ */
+
 public class AnimeCRUD implements CRUD {
     @Override
     public String verLink() {

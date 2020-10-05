@@ -4,6 +4,11 @@ import maua.br.model.ListaAnimes;
 
 import java.util.List;
 
+
+/**
+ *Interface que auxilia a API e o sql
+ * @param <T> - parametro generico
+ */
 public interface CRUD<T> {
     String verLink();
     List<T> nome(String nome);
