@@ -3,6 +3,9 @@ package maua.br.parser;
 import maua.br.enums.TiposMangas;
 import maua.br.model.Manga;
 
+/**
+ * Contém os tipos de enumerações correspontes as strings
+ */
 public class StatusMangas {
     public static TiposMangas toStatus(String tipo){
         if (tipo.equals("Novel")) return TiposMangas.NOVEL;

@@ -8,7 +8,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe responsável por converter json para lista de mangas
+ */
 public class MangaParser {
+    /**
+     * @param json - usa o json para converter em manga
+     * @return -retorna lista de mangas
+     */
     public static List<Manga> json(String json){
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray("json");
@@ -20,7 +27,7 @@ public class MangaParser {
                     ((JSONObject)manga).getString("sinopse"),
                     ((JSONObject)manga).getInt("Capítulos"),
                     ((JSONObject)manga).getInt("Volume"),
-                    ((JSONObject)manga).getInt("Tipo"), // Corrigir
+                    StatusMangas.toStatus(((JSONObject)manga).getString("tipo")),
                     ((JSONObject)manga).getInt("Nota")
 
 

@@ -7,7 +7,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Transforma as informações Json em lista de animes
+ */
 public class AnimeParser {
+    /** transforma as informações do tipo json em informações
+     * para os animes
+     * @param json - pega as informações do tipo Json para serem convertidas
+     * @return retorna lista de animes
+     */
     public static List<Animes> json(String json){
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray("json");

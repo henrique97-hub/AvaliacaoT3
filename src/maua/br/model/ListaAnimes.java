@@ -7,11 +7,22 @@ import java.util.List;
 public class ListaAnimes {
     private List<Animes> animes;
 
-    // Cria a lista
+    /**
+     * Cria a lista de animes
+     */
+
     public ListaAnimes(){this.animes = new ArrayList<>();}
-   // Adiciona
+
+    /**Adiciona animes à lista
+     * @param animes - animes
+     */
+
     public void addAnime(Animes animes) {this.animes.add(animes);}
-    // Mostra
+
+    /**
+     * @return retorna os animes listados
+     */
+
     public final List<Animes> getAnimes(){return this.animes ;}
 
     @Override

@@ -1,5 +1,8 @@
 package maua.br.enums;
 
+/**
+ * Possui toso os tipos de mangas, seguidos de suas descrições
+ */
 public enum TiposMangas {
     MANGA{
         @Override

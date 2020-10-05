@@ -10,6 +10,10 @@ import maua.br.model.Manga;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe Menu possui todas as funções do programa, e é através dela
+ * que o programa será executado
+ */
 public class Menu {
     private AnimeDAO animeDao = new AnimeDAO();
     private static AnimeCRUD animeCRUD = new AnimeCRUD();
@@ -19,7 +23,11 @@ public class Menu {
     private static MangaCRUD mangaCRUD = new MangaCRUD();
     private static Scanner scanner = new Scanner(System.in);
 
-    // Funções dos cases
+
+    /** exibira a lista de nomes de animes encontradas em buscas SQL/API
+     * @param animesList - lista de animes
+     * @return - retorna um anime
+     */
     public static Animes escolhaAnimes(List<Animes> animesList) {
         int validacao = 0;
         System.out.println("Lista de animes: ");
@@ -31,6 +39,10 @@ public class Menu {
 
     }
 
+    /** Possui o nome de todos os mangas
+     * @param mangaList - lista de mangas
+     * @return - retorna um manga
+     */
     public static Manga escolhaManga(List<Manga> mangaList) {
         int validacao = 0;
         System.out.println("Lista de animes: ");
@@ -42,6 +54,10 @@ public class Menu {
 
     }
 
+    /**
+     * Valida se o anime está ou não no database,sendo assim,
+     * ele apenas exibe-o ou executa um pedido para a API
+     */
     public void validarAnime() {
         Animes anime;
         System.out.println("Digite o nome do anime: ");
@@ -59,6 +75,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Valida se o manga está ou não no database,sendo assim,
+     * ele apenas exibe-o ou executa um pedido para a API
+     */
         public void validarMangas(){
             Manga manga;
             System.out.println("Digite o nome do manga: ");
@@ -78,6 +98,9 @@ public class Menu {
 
         }
 
+    /**
+     * Exibe os animes encontrados no database
+     */
         public void exibirAnimes(){
         AnimeDAO ad = new AnimeDAO();
         List<Animes> animesList = ad.infos();
@@ -86,6 +109,9 @@ public class Menu {
         }
         }
 
+    /**
+     * Exibe os mangas encontrados no database
+     */
         public void exibirMangas(){
         MangaDAO md = new MangaDAO();
         List<Manga> mangaList = md.infos();
@@ -94,14 +120,30 @@ public class Menu {
         }
         }
 
-// Interface que interage com o usuario:
+    /**
+     * Contém as possíveis escolhas que o usuário pode fazer
+     */
+    public void opcoes(){
+        System.out.println("Escolha uma das opções abaixo: " +
+                "1 - Anime "+ " " +
+                "2 - Manga"+ ""+
+                "3 - ListaMangas"+""+
+                "4 - ListaAnimes"+""+
+                "-1 - Sair"+"");
+
+    }
+    /**
+     * Método que interage com o usuario, deixando-o com
+     * opção de livre escolha para fazer as ações que desejar
+     */
+
     public void controle(){
     int sair = -1;
-    int A;
+    int op;
     while (sair == -1){
         opcoes();
-        A =Integer.parseInt(scanner.nextLine());
-        switch (A){
+        op =Integer.parseInt(scanner.nextLine());
+        switch (op){
             case 1:
                 validarAnime();
                 break;
@@ -122,17 +164,5 @@ public class Menu {
     }
 
     }
-
-public void opcoes(){
-    System.out.println("Escolha uma das opções abaixo: " +
-            "1 - Anime "+ " " +
-            "2 - Manga"+ ""+
-            "3 - ListaMangas"+""+
-            "4 - ListaAnimes"+""+
-            "-1 - Sair"+"");
-
-}
-
-
 }
 

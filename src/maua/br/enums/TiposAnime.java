@@ -1,5 +1,9 @@
 package maua.br.enums;
 
+/**
+ * Enumerações: possui todos os tipos de animes, seguidos
+ * de suas descrições
+ */
 public enum TiposAnime {
 TV{
     @Override

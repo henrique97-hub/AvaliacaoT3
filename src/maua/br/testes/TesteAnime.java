@@ -5,6 +5,9 @@ import maua.br.model.Animes;
 import maua.br.model.ListaAnimes;
 import maua.br.model.ListaMangas;
 
+/**
+ * Classe de testes de funcionamento
+ */
 public class TesteAnime {
 
 
